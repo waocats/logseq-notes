@@ -2,16 +2,17 @@ tags:: AZ-900
 
 -
 - The provider is *always* responsible for:
-	- The physical hosts, networks, and datacenters
-	- Physical security
-	- Power
-	- Cooling
+	- The physical **hosts**, **networks**, and **datacenters**
+	- **Physical security**
+	- **Power**
+	- **Cooling**
 - The consumer is *always* responsible for:
-	- Data/information stored in the cloud
-	- Patches and updates within a system hosted in the cloud
-	- Devices allowed to connect to your cloud
-	- The accounts and identities of people/services/devices in your organization
+	- **Data/information** stored in the cloud
+	- **Patches and updates** within a system hosted in the cloud
+	- **Devices allowed to connect** to your cloud
+	- The **accounts and identities** of people/services/devices in your organization
 - Provider/consumer responsibilities also depend on the service model
+  id:: 649075fe-9adf-4825-a2d7-7e1a1320c0d2
   |Service|SaaS|PaaS|IaaS|
   |Information and data||||
   |Devices (PCs and mobile)||||
