@@ -41,7 +41,7 @@ tags:: AZ-900
 			- *Vertical scaling* refers to adding more resources to existing infrastructure (i.e. adding more CPUs and RAM to a virtual machine)
 			- *Horizontal scaling* refers to deploying new infrastructure (i.e. adding more virtual machines)
 -
-- There are also ***two* crucial cloud benefits**:
+- **Confidence in the cloud** comes from ***two* crucial benefits**:
 	- ***Reliability*** (the ability of a system to recover from failures and continue to function)
 		- Because the cloud is decentralized, you can have resources deployed in regions around the world
 			- In the event of a failure, your cloud environment itself can shift to a different region with no action needed
@@ -53,3 +53,17 @@ tags:: AZ-900
 			- You can track your resources in real time and monitor them to ensure they are being used in the most efficient way
 			- You can also apply data analytics to to find patterns and trends that help better plan resource deployments
 			- You can use tools such as the Total Cost of Ownership (TCO) or Pricing Calculator to get an estimate of potential cloud spend
+-
+- Another major benefit of cloud computing is manageability. There are ***two* types of manageability** in the cloud:
+	- **Management of the cloud** (managing your cloud resources), which includes:
+		- *Automatically scaling resource deployment* based on need
+		- *Deploying resources based on a template* (removing the need for manual configuration)
+		- *Monitoring the health of resources* and automatically replacing failing ones
+		- *Receiving automatic alerts* based on configured metrics, so you can be aware of performance in real time
+	- **Management in the cloud** (how you manage your cloud environment), which includes:
+		- Through a *web portal*
+		- Using a *command line interface*
+		- Using *APIs*
+		- Using *PowerShell*
+-
+-
