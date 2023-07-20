@@ -1,0 +1,40 @@
+tags:: Microsoft Azure, Microsoft Azure/AZ-900
+alias:: Azure Virtual Private Networks, Azure VPNs
+
+-
+- **A virtual private network (or VPN) uses an *encrypted tunnel* within another network**
+	- Typically **used to connect two or more trusted private networks to one another over an untrusted network**
+	- Traffic is encrypted between the two networks to prevent eavesdropping or other attacks
+-
+- A VPN gateway is a type of virtual network gateway
+-
+- **Azure VPN Gateway instances are deployed in a *dedicated subnet* of the virtual network**, and enable the following connectivity:
+	- Connect on-premises datacenters to virtual networks through a *site-to-site* connection
+		- {{embed ((64ad8529-0b04-482c-9190-620a92ea1bce))}}
+	- Connect individual devices to virtual networks through a *point-to-site* connection
+		- {{embed ((64ad84f7-8b80-4ba7-bbd2-5438a132a52a))}}
+	- Connect virtual networks to other virtual networks through a *network-to-network* connection
+		- {{embed ((64ad86b2-419e-4cd6-9a5f-b6d9c7c1dfc2))}}
+-
+- **When deploying a VPN gateway, you must specify *a VPN type:* **
+	- ***Policy-based***
+		- *Statically specify the IP address of packets that should be encrypted*
+		- Evaluates every data packet against those sets of IP addresses to choose the tunnel the packet will be sent through
+	- ***Route-based***
+		- *IPSec tunnels are modeled as a network interface or virtual tunnel interface*
+		- The preferred connection method for on-premises devices, as they're more resilient to topology changes such as the creation of new subnets
+-
+- **There are a *few ways to maximize the resiliency* of a VPN gateway**. Such configurations include:
+	- *Active/standby*
+		- By default, VPN gateways are deployed as two instances
+		- When the active instance is disrupted or taken down for maintenance, the standby takes over
+			- Connections are interrupted during this failover, but are typically restored within a few seconds for planned maintenance, and within 90 seconds for unplanned disruptions
+	- *Active/active*
+		- With the introduction of BGP routing protocol support, you can deploy VPN gateways in an active/active configuration
+		- This involves assigning a unique public IP address to each instance, and creating separate tunnels for each IP
+		- You can extend the high availability by deploying an additional VPN on-premises
+	- *ExpressRoute failover*
+		- You can provision a VPN gateway that uses the internet as an alternate method in case ExpressRoute fails
+	- *Zone-redundant gateways*
+		- In regions that support [availability zones](((64ac4b2f-f45b-4b79-a341-7fa1ae35e960))), VPN gateways and ExpressRoute gateways can be deployed in a zone-redundant configuration
+		- These gateways also require different SKUs and use Standard public IP addresses instead of Basic public IP addresses

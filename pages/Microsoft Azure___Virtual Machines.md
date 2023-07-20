@@ -1,0 +1,39 @@
+tags:: Microsoft Azure, Microsoft Azure/AZ-900
+alias:: Azure Virtual Machines, Azure VMs
+
+-
+- **An Azure IaaS offering that has the flexibility of virtualization without having to buy and maintain the hardware that runs the VM**
+-
+- You can create or use an already created image to rapidly provision VMs
+	- An image is a template used to create a VM and may include an OS and other software
+-
+- ***Virtual machine scale sets* let you create and manage a group of identical, load-balanced VMs**
+	- The number of VM instances can increase or decrease in response to demand or a schedule
+	- Scale sets also automatically deploy a load balancer
+-
+- ***Virtual machine availability sets* are designed to ensure VMs stagger updates and have varied power and network connectivity**
+	- **VMs are grouped in *two* ways:**
+		- *Update domain*
+			- Groups VMs that can be rebooted at the same time, such that one update domain grouping will be offline at a time
+			- An update group is given a 30-minute time to recover before maintenance starts on the next update domain
+		- *Fault domain*
+			- Groups VMs by common power source and network switch
+			- An availability set will split VMs across up to three fault domains by default
+	- Availability sets incur no additional cost
+-
+- ***Four* examples of when Azure Virtual Machines can be used**:
+	- *Testing and development*
+		- Since VMs can provide a quick and easy way to create different OS and application configurations
+		- They can also be deleted when they are no longer needed
+	- *Running applications in the cloud*
+		- As a cloud service, they have the benefit of being more economically sustainable while handling fluctuating demand
+	- *Extending your datacenter to the cloud*
+		- You can extend the capabilities of your own on-premises network by creating a [virtual network]([[Microsoft Azure/Virtual Networks]]) and adding VMs to it
+	- *Disaster recovery*
+		- If a primary datacenter fails, you can use VMs to run critical applications until the datacenter is operational again
+-
+- Azure Virtual Desktop is a type of virtual machine that enables you to use a cloud-hosted version of Windows from any location
+	- Provides security with Azure Active Directory, as well as multifactor authentication
+	- Data and apps are separated from the local hardware
+	- You can use either Windows 10 or Windows 11 Enterprise multi-session (multiple concurrent users on a single VM)
+	- Provides a more consistent experience with broader application support compared to Windows Server-based OS

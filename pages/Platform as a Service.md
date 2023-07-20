@@ -1,9 +1,9 @@
-tags:: AZ-900
+tags:: Microsoft Azure/AZ-900
 alias:: PaaS
 
 -
-- The **middle ground between renting space in a datacenter** ([[IaaS]]) **and paying for a complete and deployed solution** ([[SaaS]])
-	- Also, unlike [[IaaS]], *you don't need to worry about licensing or patching for operating systems and databases*
+- The **middle ground between renting space in a datacenter** ([[Infrastructure as a Service]]) **and paying for a complete and deployed solution** ([[Software as a Service]])
+	- Also, unlike [[Infrastructure as a Service]] , *you don't need to worry about licensing or patching for operating systems and databases*
 	- Depending on the configuration, *you or the cloud provider may be responsible for networking, security, and the directory infrastructure*
 -
 - PaaS in the [shared responsibility model]([[Shared Responsibility Model]]):

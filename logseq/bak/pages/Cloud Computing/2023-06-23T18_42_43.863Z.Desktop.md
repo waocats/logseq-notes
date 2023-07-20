@@ -1,0 +1,55 @@
+public:: true
+tags:: AZ-900
+
+-
+- Defined as the **delivery of *cloud computing services* over the internet**
+	- *Cloud computing services* include:
+		- [[Virtual Machines]]
+		- [[Storage]]
+		- Databases
+		- Networking
+		- Internet of Things
+		- Machine Learning
+		- Artificial Intelligence
+-
+- Because this service is delivered over the internet, it doesn't have to be constrained by physical infrastructure
+-
+- Cloud computing operates on the [shared responsibility model]([[Shared Responsibility Model]]) as well as the [operational expenditure model]([[Operational Expenditure Model]])
+-
+- There are ***four* main types of cloud models**:
+  |||Public cloud|Multi-cloud|Hybrid cloud|Private cloud|
+  |Summary||Built, controlled, and maintained by a third-party provider|Multiple public clouds|Both public/private clouds used together|Cloud used by/dedicated to a single entity|
+  |Maintainer||Provider|Providers|Provider and consumer|Consumer|
+  |Cost||\$|$|\$$|$$$|
+  |Security & Resources||Only options given by the provider|Only options given by the providers|Consumer decides who has control|Consumer has full control|
+	- **Azure Arc**
+	  id:: 648b5920-6fbe-4751-913c-31dfe245caef
+		- A set of technologies that can help manage these types of models
+		- Allows for a consistent development and operation experience to run cloud-native apps anywhere
+		- Provides Azure security and governance for applications, data, and infrastructure across environments
+	- **Azure VMware Solution**
+		- Allows private cloud VMware workloads to be run in Azure
+-
+- **When building a cloud application**, there are ***two* big considerations**:
+	- Availability (***uptime***)
+		- When architecting a solution, you'll need to account for service availability guarantees
+			- These guarantees are part of the service-level agreements (SLAs)
+	- Ability to handle demand (***scale***)
+		- Because the cloud works off of the [operational expenditure model]([[Operational Expenditure Model]]), you only pay for what you use
+			- This means that you can reduce your resources if demand is low, or add more if demand is high
+		- There are ***two* types of scaling** when adjusting the amount of cloud resources
+			- *Vertical scaling* refers to adding more resources to existing infrastructure (i.e. adding more CPUs and RAM to a virtual machine)
+			- *Horizontal scaling* refers to deploying new infrastructure (i.e. adding more virtual machines)
+-
+- There are also ***two* crucial cloud benefits**:
+	- ***Reliability*** (the ability of a system to recover from failures and continue to function)
+		- Because the cloud is decentralized, you can have resources deployed in regions around the world
+			- In the event of a failure, your cloud environment itself can shift to a different region with no action needed
+	- ***Predictability***
+		- *Performance Predictability* (predicting the amount of resources needed)
+			- Autoscaling can deploy additional resources to meet demand, then scale back when demand drops
+			- Load balancing can help redirect traffic to a different area if an area is overloaded
+		- *Cost Predictability* (predicting the cost of the cloud spend)
+			- You can track your resources in real time and monitor them to ensure they are being used in the most efficient way
+			- You can also apply data analytics to to find patterns and trends that help better plan resource deployments
+			- You can use tools such as the Total Cost of Ownership (TCO) or Pricing Calculator to get an estimate of potential cloud spend

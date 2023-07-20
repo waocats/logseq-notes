@@ -1,4 +1,4 @@
-tags:: AZ-900
+tags:: Microsoft Azure/AZ-900
 
 -
 - The provider is *always* responsible for:

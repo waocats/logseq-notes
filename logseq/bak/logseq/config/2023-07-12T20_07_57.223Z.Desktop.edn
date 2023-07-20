@@ -10,7 +10,7 @@
  ;; Available options:
  ;; - :now for NOW/LATER style (default)
  ;; - :todo for TODO/DOING style
- :preferred-workflow :now
+ :preferred-workflow :todo
 
  ;; Exclude directories/files.
  ;; Example usage:
@@ -226,19 +226,28 @@
     :group-by-page? false
     :collapsed? false}
    {:title "📅 NEXT"
-    :query [:find (pull ?h [*])
-            :in $ ?start ?next
+    :query [:find (pull ?h [*]) ;get full block results
+            :in $ ?start ?next ;variables made from the values in :inputs to use in the query.
             :where
-            [?h :block/marker ?marker]
-            [(contains? #{"NOW" "LATER" "TODO"} ?marker)]
-            [?h :block/page ?p]
-            [?p :block/journal? true]
-            [?p :block/journal-day ?d]
-            [(> ?d ?start)]
-            [(< ?d ?next)]]
-    :inputs [:today :7d-after]
-    :group-by-page? false
-    :collapsed? false}]}
+            [?h :block/marker ?marker] ;tasks are identified by having a marker like TODO
+            [(contains? #{"NOW" "LATER" "TODO"} ?marker)] ;specify which marker to include.
+            (or
+              [?h :block/page ?p] ;either the task is on a (journal) page
+              [?h :block/refs ?p] ;or references a (journal) page
+            )
+            ;This will always be true as all blocks are on some page and tasks always reference a page, namely the default marker page i.e. TODO etc.
+            (or 
+              [?p :block/journal-day ?d] ;the page is a journal page with date ?d
+              [?h :block/scheduled ?d] ;or the task is scheduled for date ?d
+              [?h :block/deadline ?d] ;or the task has a deadline for date ?d
+            )
+            [(> ?d ?start)] ;the date is bigger than ?start i.e. today
+            [(< ?d ?next)]] ;the date is smaller than ?next i.e. 7 days after today.
+    :inputs [:today :+7d] ;dynamic input to define start and next. In this case today and +7 days from today.
+    :group-by-page? false ;don't group the blocks by page (change to true to group)
+    :breadcrumb-show? true ;do show the parent block hierarchy of the block (change to false to hide it)
+    :collapsed? false} ;don't collapse the query to title only. Change to true to collapse the query.
+   	]}
 
  ;; Add custom commands to the command palette
  ;; Example usage:
@@ -281,7 +290,7 @@
 
  ;; Configure the threshold for linked references before collapsing.
  ;; Default value: 100
- :ref/linked-references-collapsed-threshold 50
+ :ref/linked-references-collapsed-threshold 0
 
  ;; Graph view configuration.
  ;; Example usage:
@@ -292,7 +301,7 @@
  ;;  :journal?        false} ; Default value: false
 
  ;; Favorites to list on the left sidebar
- :favorites []
+ :favorites ["Microsoft Azure/AZ-900" "Microsoft Azure"]
 
  ;; Set flashcards interval.
  ;; Expected value:
@@ -412,4 +421,4 @@
  ;;      ;use triple underscore `___` for slash `/` in page title
  ;;      ;use Percent-encoding for other invalid characters
  :file/name-format :triple-lowbar
- :graph/settings {:journal? false, :builtin-pages? false, :excluded-pages? true, :orphan-pages? false}}
+ :graph/settings {:journal? false, :builtin-pages? false, :excluded-pages? true, :orphan-pages? true}}

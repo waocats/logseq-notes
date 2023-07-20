@@ -1,4 +1,4 @@
-tags:: AZ-900
+tags:: Microsoft Azure/AZ-900
 
 -
 - The operational expenditure model (or OpEx) refers to spending money on services or products over time

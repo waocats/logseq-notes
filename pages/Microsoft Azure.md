@@ -1,0 +1,66 @@
+tags:: Microsoft Azure, Microsoft Azure/AZ-900
+
+-
+- ## Summary
+	- A continually expanding set of cloud services from Microsoft that give you the freedom to build, manage, and deploy applications on a global network using your favorite tools and frameworks
+	- Provides more than 100 services that enable you to do everything from running existing applications on virtual machines to exploring new software paradigms, such as intelligent bots and mixed reality
+	- Aside from basic cloud offerings, Azure also provides artificial intelligence (AI) and machine learning (ML) services
+-
+- ## Architecture
+	- ### Physical Infrastructure
+		- #### Regions
+			- **Geographical area on the planet that contains at least one, but potentially multiple datacenters that are nearby and networked together**
+			- Azure assigns and controls the resources within each region to ensure workloads are appropriately balanced
+			- When you deploy a resource in Azure, you often need to choose which region it should be deployed in
+			- Some services or virtual machine features are only available in certain regions, such as specific VM sizes or storage types. Some global Azure services don't require a specific region at all, such as Azure Active Directory, Azure Traffic Manager, and Azure DNS
+		- #### Availability Zones
+		  id:: 64ac4b2f-f45b-4b79-a341-7fa1ae35e960
+			- Physically separate datacenters within a region
+			- Each availability zone is **made up of one or more datacenters with independent power, cooling, and networking, such that if *one zone goes down, the other continues working* **
+			- Not every region supports availability zones, but a minimum of *three* separate availability zones are present in all availability zone-enabled regions
+		- #### Region Pairs
+			- **Most Azure regions are paired with another region within the same geography** (US, Europe, Asia, etc.) at least 300mi away
+			- If a region in a pair is affected by a disaster, **services can fail over to the other region in its pair**
+				- Not all services automatically replicate data or fall back from a failed region. In these cases, recovery and replication must be configured by the customer
+			- Planned Azure updates are rolled out to paired regions one region at a time to minimize downtime
+			- Data continues to reside within the same geography as its pair (except for Brazil South) for tax and law-enforcement jurisdiction purposes
+			- Some regions are paired in only one direction, such as West India and Brazil South (which are paired with South India and South Central US respectively). These regions have different regions that they fail over to, instead (for example, South India fails over to Central India)
+		- #### Sovereign Regions
+			- **Instances that are isolated from the main instance of Azure, which are used for compliance or legal purposes** and include:
+				- US DoD Central
+				- US Gov Virginia
+				- US Gov Iowa
+				- China East
+				- China North
+	- ### Management Infrastructure
+		- #### Resource Groups
+			- A convenient way to group resources together
+				- When you apply an action to a resource group, that action will apply to all resources within the group
+				- If you delete a resource group, all of the resources in the group will be deleted
+				- If you grant or deny access to a resource group, access will be granted/denied to all resources within the group
+			- ***All Azure resources* must belong in a resource group**
+				- **Anything you create, provision, deploy, etc. in Azure is considered a resource**
+			- A single resource can only be in one resource group at a time, and resource groups cannot be nested
+			- Resource groups are tied to regions, but so are the resources within them
+		- #### Accounts & Subscriptions
+			- **You need an** ***Azure subscription* in order to create/use Azure services**
+				- **Subscriptions are a unit of management, billing, and scale**
+				- You can use subscriptions to define boundaries around Azure products, services, and resources. **There are *two* subscription boundaries** that can be used:
+					- *Billing boundary*
+						- Determines how an account is billed using Azure
+						- Azure generates separate billing reports/invoices for each subscription
+					- *Access control boundary*
+						- Azure applies access-management policies at the subscription level
+						- Different departments can have distinct subscription policies
+				- When working with applications, you need to create an Azure account, which creates a subscription for you
+					- From there, you can create as many subscriptions as you need
+						- For example, a business might have one Azure account but multiple subscriptions for different departments
+		- #### Management Groups
+			- **Used to organize subscriptions into groups and apply governance conditions**
+				- All subscriptions inherit conditions applied to the group
+			- **Examples of how management groups can be used:**
+				- *Create a hierarchy that applies a policy*
+					- You can create a policy that applies to all subscriptions and resources within those subscriptions
+				- *Provide user access to multiple subscriptions*
+					- You can create one Azure role-based access control (Azure RBAC) assignment on the management group, which all resources underneath would inherit
+				- Like subscriptions, resource groups, etc., each management group can only support one parent

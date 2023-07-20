@@ -208,12 +208,12 @@
  ;; The "NEXT" query returns tasks with "NOW", "LATER", or "TODO" status.
  :default-queries
  {:journals
-  [{:title "🔨 Today's work"
+  [{:title "🔨 NOW"
     :query [:find (pull ?h [*])
             :in $ ?start ?today
             :where
             [?h :block/marker ?marker]
-            [(contains? #{"NOW" "DOING" "LATER" "TODO"} ?marker)]
+            [(contains? #{"NOW" "DOING"} ?marker)]
             [?h :block/page ?p]
             [?p :block/journal? true]
             [?p :block/journal-day ?d]
@@ -225,7 +225,20 @@
                                    (get h :block/priority "Z")) result))
     :group-by-page? false
     :collapsed? false}
-   	]}
+   {:title "📅 NEXT"
+    :query [:find (pull ?h [*])
+            :in $ ?start ?next
+            :where
+            [?h :block/marker ?marker]
+            [(contains? #{"NOW" "LATER" "TODO"} ?marker)]
+            [?h :block/page ?p]
+            [?p :block/journal? true]
+            [?p :block/journal-day ?d]
+            [(> ?d ?start)]
+            [(< ?d ?next)]]
+    :inputs [:today :7d-after]
+    :group-by-page? false
+    :collapsed? false}]}
 
  ;; Add custom commands to the command palette
  ;; Example usage:
@@ -279,7 +292,7 @@
  ;;  :journal?        false} ; Default value: false
 
  ;; Favorites to list on the left sidebar
- :favorites ["Microsoft Azure/AZ-900" "Microsoft Azure"]
+ :favorites []
 
  ;; Set flashcards interval.
  ;; Expected value:
@@ -399,4 +412,4 @@
  ;;      ;use triple underscore `___` for slash `/` in page title
  ;;      ;use Percent-encoding for other invalid characters
  :file/name-format :triple-lowbar
- :graph/settings {:journal? false, :builtin-pages? false, :excluded-pages? true, :orphan-pages? true}}
+ :graph/settings {:journal? false, :builtin-pages? true, :excluded-pages? true, :orphan-pages? true}}
