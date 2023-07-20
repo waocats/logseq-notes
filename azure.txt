@@ -1,0 +1,23 @@
+- DOING Study [Exam AZ-900: Microsoft Azure Fundamentals]([[Microsoft Azure/AZ-900]]) material
+:logbook:
+  CLOCK: [2023-07-10 Mon 11:27:10]--[2023-07-10 Mon 13:39:41] =>  02:12:31
+  CLOCK: [2023-07-10 Mon 13:39:49]
+:END:
+	- DONE Take notes on ["Describe cloud computing"](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.microsoft-azure-fundamentals-describe-cloud-concepts)
+	- DONE Take notes on ["Describe the benefits of using cloud services"](https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.microsoft-azure-fundamentals-describe-cloud-concepts)
+:logbook:
+	  	  CLOCK: [2023-07-10 Mon 11:29:04]
+	  	  CLOCK: [2023-07-10 Mon 11:29:10]--[2023-07-10 Mon 15:02:29] =>  03:33:19
+:END:
+	- DONE Take notes on ["Describe cloud service types"](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.microsoft-azure-fundamentals-describe-cloud-concepts)
+	- DONE Take notes on ["Describe the core architectural components of Azure"](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.azure-fundamentals-describe-azure-architecture-services)
+	- DOING Take notes on ["Describe Azure compute and networking services"](https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.azure-fundamentals-describe-azure-architecture-services)
+:logbook:
+	  	  CLOCK: [2023-07-10 Mon 15:54:40]
+:END:
+	- TODO Take notes on ["Describe Azure storage services"](https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.azure-fundamentals-describe-azure-architecture-services)
+	- TODO Take notes on ["Describe Azure identity, access, and security"](https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.azure-fundamentals-describe-azure-architecture-services)
+	- TODO Take notes on ["Describe cost management in Azure"](https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.describe-azure-management-governance)
+	- TODO Take notes on ["Describe features and tools in Azure for governance and compliance"](https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/)
+	- TODO Take notes on ["Describe features and tools for managing and deploying Azure resources"](https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.describe-azure-management-governance)
+	- TODO Take notes on ["Describe monitoring tools in Azure"](https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.describe-azure-management-governance)
